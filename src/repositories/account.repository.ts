@@ -94,7 +94,7 @@ export class AccountRepository extends Repository {
     return {
       time,
       encrypted: Buffer.concat([
-        Buffer.from([1, this.client.state.passwordEncryptionKeyId]),
+        Buffer.from([1, Number(this.client.state.passwordEncryptionKeyId)]),
         iv,
         sizeBuffer,
         rsaEncrypted, authTag, aesEncrypted])

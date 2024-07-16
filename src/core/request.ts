@@ -34,7 +34,7 @@ interface SignedPost {
 
 export class Request {
   private static requestDebug = debug('ig:request');
-  end$ = new Subject();
+  end$ = new Subject<void>();
   error$ = new Subject<IgClientError>();
   attemptOptions: Partial<AttemptOptions<any>> = {
     maxAttempts: 1,

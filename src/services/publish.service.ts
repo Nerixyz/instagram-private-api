@@ -137,7 +137,7 @@ export class PublishService extends Repository {
     const uploadedPhoto = await this.client.upload.photo({
       file: options.file,
     });
-    const imageSize = await sizeOf(options.file);
+    const imageSize = sizeOf.imageSize(options.file);
     const configureOptions: MediaConfigureTimelineOptions = {
       upload_id: uploadedPhoto.upload_id,
       width: imageSize.width,
@@ -221,7 +221,7 @@ export class PublishService extends Repository {
           uploadId: item.uploadId,
           isSidecar: true,
         });
-        const { width, height } = await sizeOf(item.file);
+        const { width, height } = sizeOf.imageSize(item.file);
         item.width = width;
         item.height = height;
         item.uploadId = uploadedPhoto.upload_id;
@@ -521,7 +521,7 @@ export class PublishService extends Repository {
     configureOptions: MediaConfigureStoryBaseOptions,
   ) {
     const uploadId = Date.now().toString();
-    const imageSize = await sizeOf(options.file);
+    const imageSize = sizeOf.imageSize(options.file);
     await this.client.upload.photo({
       file: options.file,
       uploadId,
