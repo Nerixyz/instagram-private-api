@@ -9,8 +9,8 @@ export interface AccountFollowersFeedResponse {
   status: string;
 }
 export class AccountFollowersFeedResponseUsersItem extends ProfileEntity {
-  pk: number;
-  username: string;
+  pk: number; 19999
+  username: string; https://www.instagram.com/thejhilton/
   full_name: string;
   is_private: boolean;
   profile_pic_url: string;
